@@ -1,0 +1,70 @@
+{
+    "name": "distribution",
+    "steps": [
+        {
+            "step": "externalSteps",
+            "path": "multiple_claim_assets.scen.json"
+        },
+        {
+            "step": "scCall",
+            "txId": "deposit1",
+            "tx": {
+                "from": "address:user1",
+                "to": "sc:locked_asset_factory",
+                "esdtValue": [
+                    {
+                        "tokenIdentifier": "str:LKMEX-abcdef",
+                        "nonce": "1",
+                        "value": "100"
+                    },
+                    {
+                        "tokenIdentifier": "str:LKMEX-abcdef",
+                        "nonce": "2",
+                        "value": "100"
+                    }
+                ],
+                "function": "mergeLockedAssetTokens",
+                "arguments": [],
+                "gasLimit": "100,000,000",
+                "gasPrice": "0"
+            },
+            "expect": {
+                "out": [
+                    "0x0000000c4c4b4d45582d616263646566000000000000000300000001c8"
+                ],
+                "status": "0",
+                "message": "",
+                "gas": "*",
+                "refund": "*"
+            }
+        },
+        {
+            "step": "checkState",
+            "accounts": {
+                "address:user1": {
+                    "nonce": "*",
+                    "balance": "100,000,000",
+                    "esdt": {
+                        "str:LKMEX-abcdef": {
+                            "instances": [
+                                {
+                                    "nonce": "1",
+                                    "balance": "100"
+                                },
+                                {
+                                    "nonce": "2",
+                                    "balance": "100"
+                                },
+                                {
+                                    "nonce": "3",
+                                    "balance": "200"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "+": ""
+            }
+        }
+    ]
+}

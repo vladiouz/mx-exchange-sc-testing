@@ -1,0 +1,18 @@
+[package]
+name = "legacy_token_decode_module"
+version = "0.0.0"
+authors = ["Sorin Petreasca <sorin.petreasca@multiversx.com>"]
+edition = "2018"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies.multiversx-sc]
+version = "=0.50.5"
+features = ["esdt-token-payment-legacy-decode"]
+
+[dependencies.common_structs]
+path = "../../common_structs"
+
+[dependencies.utils]
+path = "../utils"

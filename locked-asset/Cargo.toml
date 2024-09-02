@@ -1,0 +1,56 @@
+[package]
+name = "distribution-tests"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies.multiversx-sc]
+version = "=0.50.5"
+features = ["esdt-token-payment-legacy-decode"]
+
+[dependencies.farm]
+path = "../dex/farm"
+
+[dependencies.pair]
+path = "../dex/pair"
+
+[dependencies.router]
+path = "../dex/router"
+
+[dependencies.distribution]
+path = "distribution"
+
+[dependencies.factory]
+path = "factory"
+
+[dependencies.simple-lock]
+path = "simple-lock"
+
+[dependencies.energy-factory]
+path = "energy-factory"
+
+[dependencies.fees-collector]
+path = "../energy-integration/fees-collector"
+
+[dependencies.common_structs]
+path = "../common/common_structs"
+
+[dependencies.proxy_dex]
+path = "proxy_dex"
+
+[dependencies.lkmex-transfer]
+path = "lkmex-transfer"
+
+[dependencies.token-unstake]
+path = "token-unstake"
+
+[dev-dependencies]
+num-bigint = "0.4.2"
+num-traits = "0.2"
+hex = "0.4"
+
+[dev-dependencies.multiversx-sc-modules]
+version = "=0.50.5"
+
+[dev-dependencies.multiversx-sc-scenario]
+version = "=0.50.5"

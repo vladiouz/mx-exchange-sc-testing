@@ -1,0 +1,24 @@
+[package]
+name = "common_structs"
+version = "0.0.0"
+authors = ["Dorin Iancu <dorin.iancu@multiversx.com>"]
+edition = "2021"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies.multiversx-sc]
+version = "=0.50.5"
+features = ["esdt-token-payment-legacy-decode"]
+
+[dependencies.mergeable]
+path = "../traits/mergeable"
+
+[dependencies.fixed-supply-token]
+path = "../traits/fixed-supply-token"
+
+[dependencies.unwrappable]
+path = "../traits/unwrappable"
+
+[dependencies.math]
+path = "../modules/math"

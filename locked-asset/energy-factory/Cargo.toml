@@ -1,0 +1,48 @@
+[package]
+name = "energy-factory"
+version = "0.0.0"
+authors = ["MultiversX <contact@multiversx.com>"]
+edition = "2021"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies.simple-lock]
+path = "../simple-lock"
+
+[dependencies.common_structs]
+path = "../../common/common_structs"
+
+[dependencies.utils]
+path = "../../common/modules/utils"
+
+[dependencies.sc_whitelist_module]
+path = "../../common/modules/sc_whitelist_module"
+
+[dependencies.math]
+path = "../../common/modules/math"
+
+[dependencies.mergeable]
+path = "../../common/traits/mergeable"
+
+[dependencies.unwrappable]
+path = "../../common/traits/unwrappable"
+
+[dependencies.legacy_token_decode_module]
+path = "../../common/modules/legacy_token_decode_module"
+
+[dependencies.multiversx-sc]
+version = "=0.50.5"
+features = ["esdt-token-payment-legacy-decode"]
+
+[dependencies.multiversx-sc-modules]
+version = "=0.50.5"
+
+[dev-dependencies]
+num-bigint = "0.4.2"
+num-traits = "0.2"
+hex = "0.4"
+
+[dev-dependencies.multiversx-sc-scenario]
+version = "=0.50.5"

@@ -1,0 +1,35 @@
+{
+    "name": "distribution",
+    "steps": [
+        {
+            "step": "scCall",
+            "txId": "swap-fixed-input",
+            "tx": {
+                "from": "address:user_with_mex2",
+                "to": "sc:pair_contract",
+                "esdtValue": [
+                    {
+                        "tokenIdentifier": "str:MEX-abcdef",
+                        "value": "1000"
+                    }
+                ],
+                "function": "swapTokensFixedInput",
+                "arguments": [
+                    "str:WEGLD-abcdef",
+                    "10"
+                ],
+                "gasLimit": "100,000,000",
+                "gasPrice": "0"
+            },
+            "expect": {
+                "out": [
+                    "*"
+                ],
+                "status": "0",
+                "message": "",
+                "gas": "*",
+                "refund": "*"
+            }
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+[package]
+name = "proxy-deployer"
+version = "0.0.0"
+authors = ["MultiversX <contact@multiversx.com>"]
+edition = "2021"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies.farm]
+path = "../farm"
+
+[dependencies.pausable]
+path = "../../common/modules/pausable"
+
+[dependencies.config]
+path = "../../common/modules/farm/config"
+
+[dependencies.farm_token]
+path = "../../common/modules/farm/farm_token"
+
+[dependencies.multiversx-sc]
+version = "=0.50.5"
+features = ["esdt-token-payment-legacy-decode"]
+
+[dev-dependencies]
+num-bigint = "0.4.2"
+
+[dev-dependencies.multiversx-sc-scenario]
+version = "=0.50.5"

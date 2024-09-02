@@ -1,0 +1,34 @@
+[package]
+name = "governance-v2"
+version = "0.0.0"
+authors = ["MultiversX <contact@multiversx.com>"]
+edition = "2021"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies.energy-query]
+path = "../common-modules/energy-query"
+
+[dependencies.multiversx-sc]
+version = "=0.50.5"
+features = ["esdt-token-payment-legacy-decode"]
+
+[dependencies.permissions_module]
+path = "../../common/modules/permissions_module"
+
+[dependencies.fees-collector]
+path = "../fees-collector"
+
+[dependencies.weekly-rewards-splitting]
+path = "../common-modules/weekly-rewards-splitting"
+
+[dev-dependencies]
+num-bigint = "0.4.2"
+
+[dev-dependencies.multiversx-sc-scenario]
+version = "=0.50.5"
+
+[dev-dependencies.energy-factory-mock]
+path = "../energy-factory-mock"

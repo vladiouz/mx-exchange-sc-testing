@@ -1,0 +1,28 @@
+[package]
+name = "pause-all"
+version = "0.0.0"
+authors = ["MultiversX <contact@multiversx.com>"]
+edition = "2021"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies.pausable]
+path = "../common/modules/pausable"
+
+[dependencies.multiversx-sc]
+version = "=0.50.5"
+features = ["esdt-token-payment-legacy-decode"]
+
+[dependencies.multiversx-sc-modules]
+version = "=0.50.5"
+
+[dev-dependencies.multiversx-sc-scenario]
+version = "=0.50.5"
+
+[dev-dependencies.farm]
+path = "../dex/farm"
+
+[dev-dependencies.pair]
+path = "../dex/pair"

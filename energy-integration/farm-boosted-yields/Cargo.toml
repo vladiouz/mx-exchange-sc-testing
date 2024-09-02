@@ -1,0 +1,33 @@
+[package]
+name = "farm-boosted-yields"
+version = "0.0.0"
+authors = ["Dorin Iancu <dorin.iancu@multiversx.com>"]
+edition = "2021"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies.multiversx-sc]
+version = "=0.50.5"
+features = ["esdt-token-payment-legacy-decode"]
+
+[dependencies.config]
+path = "../../common/modules/farm/config"
+
+[dependencies.pausable]
+path = "../../common/modules/pausable"
+
+[dependencies.permissions_module]
+path = "../../common/modules/permissions_module"
+
+[dependencies.week-timekeeping]
+path = "../common-modules/week-timekeeping"
+
+[dependencies.weekly-rewards-splitting]
+path = "../common-modules/weekly-rewards-splitting"
+
+[dependencies.energy-query]
+path = "../common-modules/energy-query"
+
+[dependencies.common-types]
+path = "../common-types"

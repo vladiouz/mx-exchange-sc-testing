@@ -1,0 +1,115 @@
+{
+    "name": "distribution",
+    "steps": [
+        {
+            "step": "externalSteps",
+            "path": "enter_farm_proxy.scen.json"
+        },
+        {
+            "step": "scCall",
+            "txId": "14",
+            "tx": {
+                "from": "address:user_with_wegld1",
+                "to": "sc:proxy_dex_contract",
+                "esdtValue": [
+                    {
+                        "tokenIdentifier": "str:WLPTOK-abcdef",
+                        "nonce": "0x01",
+                        "value": "500"
+                    }
+                ],
+                "function": "enterFarmProxy",
+                "arguments": [
+                    "sc:farm_contract"
+                ],
+                "gasLimit": "1,000,000,000",
+                "gasPrice": "0"
+            },
+            "expect": {
+                "out": "*",
+                "status": "0",
+                "gas": "*",
+                "refund": "*"
+            }
+        },
+        {
+            "step": "scCall",
+            "txId": "41",
+            "tx": {
+                "from": "address:user_with_wegld1",
+                "to": "sc:proxy_dex_contract",
+                "esdtValue": [
+                    {
+                        "tokenIdentifier": "str:WFARM-abcdef",
+                        "nonce": "1",
+                        "value": "1,000"
+                    },
+                    {
+                        "tokenIdentifier": "str:WFARM-abcdef",
+                        "nonce": "2",
+                        "value": "100"
+                    }
+                ],
+                "function": "mergeWrappedFarmTokens",
+                "arguments": [
+                    "sc:farm_contract"
+                ],
+                "gasLimit": "1,000,000,000",
+                "gasPrice": "0"
+            },
+            "expect": {
+                "out": "*",
+                "status": "0",
+                "gas": "*",
+                "refund": "*"
+            }
+        },
+        {
+            "step": "checkState",
+            "accounts": {
+                "address:user_with_wegld1": {
+                    "nonce": "*",
+                    "balance": "100,000,000",
+                    "esdt": {
+                        "str:LKMEX-abcdef": {
+                            "instances": [
+                                {
+                                    "nonce": "0x01",
+                                    "balance": "80,000"
+                                }
+                            ]
+                        },
+                        "str:WEGLD-abcdef": "999,990,000",
+                        "str:WLPTOK-abcdef": {
+                            "instances": [
+                                {
+                                    "nonce": "0x01",
+                                    "balance": "500"
+                                }
+                            ]
+                        },
+                        "str:WFARM-abcdef": {
+                            "instances": [
+                                {
+                                    "nonce": "0x01",
+                                    "balance": "7,000"
+                                },
+                                {
+                                    "nonce": "0x03",
+                                    "balance": "1,100"
+                                },
+                                {
+                                    "nonce": "0x02",
+                                    "balance": "400"
+                                }
+                            ]
+                        }
+                    },
+                    "storage": {},
+                    "code": ""
+                },
+                "+": ""
+            }
+        }
+    ]
+}
